@@ -5,6 +5,8 @@ import { createAppContainer, createStackNavigator, createBottomTabNavigator } fr
 import AuthScreen from './screens/AuthScreen';
 import DeckScreen from './screens/DeckScreen';
 import MapScreen from './screens/MapScreen';
+import ReviewScreen from './screens/ReviewScreen';
+import SettingsScreen from './screens/SettingsScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 
 export default class App extends React.Component {
@@ -15,7 +17,13 @@ export default class App extends React.Component {
       main: {
         screen: createBottomTabNavigator({
           map: { screen: MapScreen },
-          deck: { screen: DeckScreen }
+          deck: { screen: DeckScreen },
+          review: {
+            screen: createStackNavigator({
+              review: { screen: ReviewScreen },
+              settings: { screen: SettingsScreen }
+            })
+          }
         })
       }
     });
