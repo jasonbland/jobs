@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
 
 class ReviewScreen extends Component {
@@ -12,8 +12,13 @@ class ReviewScreen extends Component {
           onPress={() => {
             navigation.navigate('settings');
           }}
+          backgroundColor="rgba(0, 0, 0, 0)"
+          color="rgba(0, 122, 255, 1)"
         />
-      )
+      ),
+      style: {
+        marginTop: Platform.OS === 'android' ? 24 : 0
+      }
     };
   };
 
