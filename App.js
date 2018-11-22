@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+
+import store from './store';
 
 import AuthScreen from './screens/AuthScreen';
 import DeckScreen from './screens/DeckScreen';
@@ -31,9 +34,11 @@ export default class App extends React.Component {
     const AppContainer = createAppContainer(MainNavigator);
 
     return (
-      <View style={styles.container}>
-        <AppContainer />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <AppContainer />
+        </View>
+      </Provider>
     );
   }
 }
