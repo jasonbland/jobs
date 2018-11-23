@@ -6,7 +6,6 @@ import * as actions from '../actions';
 class AuthScreen extends Component {
   componentDidMount() {
     this.props.facebookLogin();
-    AsyncStorage.removeItem('fb_token'); //temp for testing
   }
 
   render() {
@@ -24,7 +23,11 @@ class AuthScreen extends Component {
   }
 }
 
+function mapStateToProps({ auth }) {
+  return { token: auth.token };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(AuthScreen);
