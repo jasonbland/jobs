@@ -8,6 +8,8 @@ class AuthScreen extends Component {
     this.props.facebookLogin();
     // check if user logged in case (may not be necassary)
     this.onAuthComplete(this.props);
+
+    AsyncStorage.removeItem('fb_token'); // testing
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,17 +24,7 @@ class AuthScreen extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-      </View>
-    );
+    return <View />;
   }
 }
 
