@@ -17,14 +17,10 @@ class MapScreen extends Component {
     this.setState({ mapLoaded: true });
   }
 
-  onRegionChange(region) {
-    this.setState({ region });
-  }
-
   render() {
     if (!this.state.mapLoaded) {
       return (
-        <View>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <ActivityIndicator size="large" />
         </View>
       );
@@ -32,7 +28,7 @@ class MapScreen extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <MapView style={{ flex: 1 }} initialRegion={this.state.region} onRegionChange={this.onRegionChange} />
+        <MapView style={{ flex: 1 }} initialRegion={this.state.region} />
       </View>
     );
   }
