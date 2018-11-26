@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { MapView } from 'expo';
+import { MapView, Permissions } from 'expo';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
@@ -17,7 +17,9 @@ class MapScreen extends Component {
     }
   };
 
-  componentDidMount() {
+  async componentDidMount() {
+    await Permissions.askAsync(Permissions.LOCATION);
+
     this.setState({ mapLoaded: true });
   }
 

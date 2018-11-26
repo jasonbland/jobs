@@ -1,6 +1,6 @@
 import axios from 'axios';
-import reverseGeoCode from 'latlng-to-zip';
 import qs from 'qs';
+import { Location } from 'expo';
 
 import { FETCH_JOBS } from './types';
 
@@ -21,11 +21,10 @@ const buildJobsUrl = zip => {
 
 export const fetchJobs = region => async dispatch => {
   try {
-    let zip = await reverseGeoCode(region);
+    let zip = await Location.reverseGeocodeAsync(region);
     const url = buildJobsUrl(zip);
     let { data } = await axios.get(url);
     dispatch({ type: FETCH_JOBS, payload: data });
-    console.log(data);
   } catch (e) {
     console.error(e);
   }
