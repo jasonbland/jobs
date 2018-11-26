@@ -43,7 +43,12 @@ class DeckScreen extends Component {
   render() {
     return (
       <View>
-        <Swipe data={this.props.jobs} renderCard={this.renderCard} renderNoMoreCards={this.renderNoMoreCards} />
+        <Swipe
+          data={this.props.jobs}
+          renderCard={this.renderCard}
+          renderNoMoreCards={this.renderNoMoreCards}
+          keyProp="jobkey"
+        />
       </View>
     );
   }
