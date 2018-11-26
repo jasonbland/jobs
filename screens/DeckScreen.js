@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
+import Swipe from '../components/Swipe';
+
 class DeckScreen extends Component {
   render() {
-    return <View />;
-  }
+    return (
+      <View>
+        <Swipe data={this.props.jobs} />
+      </View>
+    )
 }
 
 function mapStateToProps({ jobs }) {
