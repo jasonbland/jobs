@@ -21,8 +21,8 @@ const buildJobsUrl = zip => {
 
 export const fetchJobs = (region, callback) => async dispatch => {
   try {
-    let zip = await Location.reverseGeocodeAsync(region);
-    const url = buildJobsUrl(zip);
+    let location = await Location.reverseGeocodeAsync(region);
+    const url = buildJobsUrl(location[0].postalCode);
     let { data } = await axios.get(url);
 
     dispatch({ type: FETCH_JOBS, payload: data });
