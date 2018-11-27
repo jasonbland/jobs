@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, Text, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Platform, ScrollView, Text, View } from 'react-native';
+import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 class ReviewScreen extends Component {
@@ -23,20 +23,36 @@ class ReviewScreen extends Component {
     };
   };
 
+  renderLikedJobs() {
+    return this.props.likedJobs.map(job => {
+      return (
+        <Card>
+          <View style={{ height: 200 }}>
+            <View style={styles.detailWrapper}>
+              <Text style={styles.italics}>{job.company}</Text>
+              <Text style={styles.italics}>{job.formattedRelativeTime}</Text>
+            </View>
+          </View>
+        </Card>
+      );
+    });
+  }
+
   render() {
-    return (
-      <View>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-      </View>
-    );
+    return <ScrollView>{this.renderLikedJobs()}</ScrollView>;
   }
 }
+
+const styles = {
+  detailWrapper: {
+    marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  italics: {
+    fontStyle: 'italic'
+  }
+};
 
 function mapStateToProps(state) {
   return { likedJobs: state.likes };

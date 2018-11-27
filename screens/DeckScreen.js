@@ -3,7 +3,7 @@ import { Platform, Text, View } from 'react-native';
 import { MapView } from 'expo';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
-import * as action from '../actions';
+import * as actions from '../actions';
 
 import Swipe from '../components/Swipe';
 
