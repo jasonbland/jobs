@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 import { Location } from 'expo';
 
-import { FETCH_JOBS, LIKE_JOB } from './types';
+import { CLEAR_LIKES, FETCH_JOBS, LIKE_JOB } from './types';
 
 const JOB_ROOT_URL = 'http://api.indeed.com/ads/apisearch?';
 const JOB_QUERY_PARAMS = {
@@ -37,4 +37,8 @@ export const likeJob = job => {
     type: LIKE_JOB,
     payload: job
   };
+};
+
+export const clearLikes = () => {
+  return { type: CLEAR_LIKES };
 };
