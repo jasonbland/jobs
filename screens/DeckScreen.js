@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 import { MapView } from 'expo';
-import { Button, Card } from 'react-native-elements';
+import { Button, Card, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Swipe from '../components/Swipe';
 
 class DeckScreen extends Component {
+  static navigationOptions = {
+    title: 'Jobs',
+    tabBarIcon: ({ tintColor }) => {
+      return <Icon name="description" size={30} color={tintColor} />;
+    }
+  };
+
   renderCard(job) {
     const initialRegion = {
       latitude: job.latitude,
