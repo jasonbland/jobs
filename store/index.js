@@ -15,4 +15,7 @@ const store = createStore(
 
 persistStore(store, { storage: AsyncStorage, whitelist: ['likes'] });
 
+// use purge to dump all persisted data
+// persistStore(store, { storage: AsyncStorage, whitelist: ['likes'] }).purge();
+
 export default store;
