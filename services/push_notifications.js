@@ -10,7 +10,7 @@ export default async () => {
   if (previousToken) {
     return;
   } else {
-    let { status } = await Permissions.askAsync(Permissions.REMOTE_NOTIFICATIONS);
+    let { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
 
     if (status !== 'granted') {
       return;
