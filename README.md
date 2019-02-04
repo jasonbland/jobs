@@ -1,7 +1,7 @@
 jobs
 ============
 
-This is a simple jobs searching app powered by React Native, Facebook, Indeed, Google Map View
+This is a simple jobs searching app powered by React Native, Indeed, Facebook, and Google Map View.
 
 
 ## Features
